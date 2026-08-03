@@ -1,8 +1,10 @@
 '''
-
+the setup.py file is used to package and distribute the NetworkSecurity project.
+It specifies the project's metadata, dependencies, and other configuration details required for installation.
+The get_requirements function reads the requirements.txt file to gather the list of dependencies needed for the project.
 '''
 
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages,setup
 from typing import List
 def get_requirements() -> List[str]:
     """
