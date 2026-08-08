@@ -60,3 +60,43 @@ class DataValidationConfig:
         self.drift_report_file_path:str=os.path.join(
             self.data_validation_dir,tp.DATA_VALIDATION_DRIFT_REPORT_DIR,tp.DATA_VALIDATION_DRIFT_REPORT_FILE_NAME
         )
+        
+# class DataTransformationConfig:
+#     def __init__(self,training_pipeline_config: TrainingPipelineConfig):
+#         self.data_transformation_dir:str =os.path.join(training_pipeline_config.artifact_dir,tp.DATA_TRANSFORMATION_DIR_NAME)
+#         self.transformed_train_file_path:str =os.path.join(self.data_transformation_dir,tp.DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR,
+#                                                         tp.TRAIN_FILE_NAME.replace("csv","npy"),)
+#         self.transformed_test_file_path:str =os.path.join(self.data_transformation_dir,tp.DATA_TRANS,
+#                                                         tp.TEST_FILE_NAME.replace("csv","npy"),)
+#         self.transformed_object_file_path:str=os.path.join(self.data_transformation_dir,tp.DATA_TRANSFORMATION,
+#                                                         tp.PREPROCESSING_OBJECT_FILE_NAME,)\
+class DataTransformationConfig:
+    def __init__(self, training_pipeline_config: TrainingPipelineConfig):
+        # Correctly maps to: "Artifact/data_transformation"
+        self.data_transformation_dir: str = os.path.join(
+            training_pipeline_config.artifact_dir, 
+            tp.DATA_TRANSFORMATION_DIR_NAME
+        )
+        
+        # Correctly maps to: "Artifact/data_transformation/transformed/train.npy"
+        self.transformed_train_file_path: str = os.path.join(
+            self.data_transformation_dir,
+            tp.DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR,
+            tp.TRAIN_FILE_NAME.replace("csv", "npy")
+        )
+        
+        # Correctly maps to: "Artifact/data_transformation/transformed/test.npy"
+        self.transformed_test_file_path: str = os.path.join(
+            self.data_transformation_dir,
+            tp.DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR, # Fixed tp.DATA_TRANS mismatch
+            tp.TEST_FILE_NAME.replace("csv", "npy")
+        )
+        
+        # Correctly maps to: "Artifact/data_transformation/transformed_object/preprocessing.pkl"
+        self.transformed_object_file_path: str = os.path.join(
+            self.data_transformation_dir,
+            tp.DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR, # Fixed tp.DATA_TRANSFORMATION mismatch
+            tp.PREPROCESSING_OBJECT_FILE_NAME
+        )
+
+        
