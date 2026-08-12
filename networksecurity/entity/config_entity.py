@@ -60,16 +60,6 @@ class DataValidationConfig:
         self.drift_report_file_path:str=os.path.join(
             self.data_validation_dir,tp.DATA_VALIDATION_DRIFT_REPORT_DIR,tp.DATA_VALIDATION_DRIFT_REPORT_FILE_NAME
         )
-        
-# class DataTransformationConfig:
-#     def __init__(self,training_pipeline_config: TrainingPipelineConfig):
-#         self.data_transformation_dir:str =os.path.join(training_pipeline_config.artifact_dir,tp.DATA_TRANSFORMATION_DIR_NAME)
-#         self.transformed_train_file_path:str =os.path.join(self.data_transformation_dir,tp.DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR,
-#                                                         tp.TRAIN_FILE_NAME.replace("csv","npy"),)
-#         self.transformed_test_file_path:str =os.path.join(self.data_transformation_dir,tp.DATA_TRANS,
-#                                                         tp.TEST_FILE_NAME.replace("csv","npy"),)
-#         self.transformed_object_file_path:str=os.path.join(self.data_transformation_dir,tp.DATA_TRANSFORMATION,
-#                                                         tp.PREPROCESSING_OBJECT_FILE_NAME,)\
 class DataTransformationConfig:
     def __init__(self, training_pipeline_config: TrainingPipelineConfig):
         # Correctly maps to: "Artifact/data_transformation"
@@ -99,4 +89,9 @@ class DataTransformationConfig:
             tp.PREPROCESSING_OBJECT_FILE_NAME
         )
 
-        
+class ModelTrainerConfig:
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+        self.model_trainer_dir:str=os.path.join(training_pipeline_config.artifact_dir,tp.MODEL_TRAINER_DIR_NAME)
+        self.trained_model_file_path:str=os.path.join(self.model_trainer_dir,tp.MODEL_TRAINER_TRAINED_MODEL_DIR,tp.MODEL_FILE_NAME)
+        self.expected_accuracy:float=tp.MODEL_TRAINER_EXPECTED_SCORE
+        self.overfitting_underfitting_threshold=tp.MODEL_TRAINER_OVER_FITTING_UNDER_FITTING_THRESHOLD
