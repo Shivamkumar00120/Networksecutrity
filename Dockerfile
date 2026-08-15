@@ -1,14 +1,10 @@
-FROM python:3.8-slim 
+# 1. Use a modern Python base image (Debian Bookworm) that works perfectly
+FROM python:3.10-slim-bookworm
 
 WORKDIR /app
 COPY . /app 
 
-# 1. Fix the Debian Buster EOL repositories so apt update works
-RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list && \
-    sed -i 's/security.debian.org/archive.debian.org/g' /etc/apt/sources.list && \
-    sed -i '/buster-updates/d' /etc/apt/sources.list
-
-# 2. Install awscli AND git (git is required to pull your public repo)
+# 2. Install your required tools (This will now run flawlessly without errors)
 RUN apt-get update -y && apt-get install -y awscli git build-essential
 
 # 3. Install your updated python packages
