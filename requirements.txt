@@ -67,7 +67,7 @@ mlflow-skinny==3.15.1
 mlflow-tracing==3.15.1
 multidict==6.7.1
 mypy_extensions==1.1.0
--e git+https://github.com/Shivamkumar00120/Networksecutrity.git@17f3f13bbc27d16760df4e1c33d6c49ccc771c70#egg=NetworkSecurity
+git+https://github.com/Shivamkumar00120/Networksecutrity.git@17f3f13bbc27d16760df4e1c33d6c49ccc771c70#egg=NetworkSecurity
 numpy==2.2.6
 opentelemetry-api==1.44.0
 opentelemetry-proto==1.44.0
@@ -88,14 +88,12 @@ pycparser==3.0
 pydantic==2.13.4
 pydantic_core==2.46.4
 Pygments==2.20.0
-pymango==0.1.1
 pymongo==3.12.0
 pyparsing==3.3.2
 python-dateutil==2.9.0.post0
 python-dotenv==1.2.2
 python-multipart==0.0.32
 pytz==2026.3.post1
-pywin32==312
 PyYAML==6.0.3
 requests==2.34.2
 requests-toolbelt==1.0.0
