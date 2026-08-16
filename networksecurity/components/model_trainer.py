@@ -23,7 +23,7 @@ from sklearn.ensemble import (
 import mlflow
 
 import dagshub
-dagshub.init(repo_owner='Shivamkumar00120', repo_name='Networksecutrity', mlflow=True)
+#dagshub.init(repo_owner='Shivamkumar00120', repo_name='Networksecutrity', mlflow=True)
 
 
 class ModelTrainer:
